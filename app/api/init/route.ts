@@ -13,7 +13,7 @@ export async function POST() {
     return NextResponse.json(
       { 
         error: 'Failed to initialize database',
-        details: process.env.NODE_ENV === 'development' ? error.message : 'Internal server error'
+        details: process.env.NODE_ENV === 'development' ? (error instanceof Error ? error.message : String(error)) : 'Internal server error'
       },
       { status: 500 }
     );
