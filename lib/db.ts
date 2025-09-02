@@ -128,6 +128,7 @@ export const checkDbHealth = async () => {
     client.release();
     return { status: 'healthy', timestamp: new Date().toISOString() };
   } catch (error) {
-    return { status: 'unhealthy', error: error.message, timestamp: new Date().toISOString() };
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+    return { status: 'unhealthy', error: errorMessage, timestamp: new Date().toISOString() };
   }
 };
