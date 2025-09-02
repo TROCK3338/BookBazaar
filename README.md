@@ -58,32 +58,6 @@ A comprehensive Next.js application for book sellers to manage their inventory, 
    ```
    Open [http://localhost:3000](http://localhost:3000)
 
-## 🚀 Quick Deployment
-
-**Ready to deploy in 5 minutes!** 🚀
-
-### Step 1: Database (Choose one)
-- **Render**: Free PostgreSQL → [render.com](https://render.com)
-- **Supabase**: Free tier → [supabase.com](https://supabase.com) 
-- **Neon**: Serverless PostgreSQL → [neon.tech](https://neon.tech)
-
-### Step 2: Deploy to Vercel
-1. Push code to GitHub
-2. Import to [Vercel](https://vercel.com)
-3. Add environment variables:
-   ```bash
-   DATABASE_URL=your_postgres_connection_string
-   JWT_SECRET=your-super-secure-random-key-32-chars-min
-   NEXT_PUBLIC_APP_URL=https://your-app.vercel.app
-   ```
-4. Deploy!
-
-### Step 3: Initialize Database
-```bash
-curl -X POST https://your-app.vercel.app/api/init
-```
-
-**📖 Detailed Guide**: See [DEPLOYMENT.md](./DEPLOYMENT.md) for complete instructions
 
 ## 📊 Database Schema
 
@@ -182,4 +156,4 @@ For any issues or questions:
 
 ---
 
-**Built with ❤️ for the BookBazaar assignment**
+**Built with ❤️ by Aman Singhal**
