@@ -44,12 +44,12 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center py-8 px-4 sm:py-12 sm:px-6 lg:px-8 safe-top safe-bottom">
+      <div className="max-w-md w-full space-y-6 sm:space-y-8">
         <div>
           <div className="text-center">
-            <h1 className="text-3xl font-bold text-primary-600 mb-2">📚 BookBazaar</h1>
-            <h2 className="text-2xl font-bold text-gray-900">Sign in to your account</h2>
+            <h1 className="text-2xl sm:text-3xl font-bold text-primary-600 mb-2">📚 BookBazaar</h1>
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Sign in to your account</h2>
             <p className="mt-2 text-sm text-gray-600">
               Or{' '}
               <Link href="/register" className="font-medium text-primary-600 hover:text-primary-500">

@@ -199,18 +199,18 @@ export default function ProfilePage() {
                   />
                 </div>
 
-                <div className="flex gap-3 pt-4">
+                <div className="flex flex-col xs:flex-row gap-3 pt-4">
                   <button
                     type="submit"
                     disabled={updating}
-                    className="btn-primary disabled:opacity-50"
+                    className="flex-1 btn-primary disabled:opacity-50"
                   >
                     {updating ? 'Updating...' : 'Save Changes'}
                   </button>
                   <button
                     type="button"
                     onClick={handleCancel}
-                    className="btn-secondary"
+                    className="flex-1 btn-secondary"
                   >
                     Cancel
                   </button>
@@ -218,13 +218,13 @@ export default function ProfilePage() {
               </form>
             ) : (
               <div className="space-y-4">
-                <div className="flex items-center">
-                  <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mr-4">
+                <div className="flex flex-col xs:flex-row xs:items-center gap-4">
+                  <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="text-2xl">👤</span>
                   </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900">{profile.name}</h3>
-                    <p className="text-gray-600">{profile.email}</p>
+                  <div className="min-w-0 flex-1">
+                    <h3 className="text-lg font-semibold text-gray-900 truncate">{profile.name}</h3>
+                    <p className="text-gray-600 truncate">{profile.email}</p>
                   </div>
                 </div>
 
@@ -244,39 +244,39 @@ export default function ProfilePage() {
           <div className="card">
             <h2 className="text-xl font-semibold text-gray-900 mb-6">Seller Statistics</h2>
             <div className="space-y-4">
-              <div className="flex items-center justify-between p-4 bg-blue-50 rounded-lg">
-                <div className="flex items-center">
-                  <span className="text-2xl mr-3">📚</span>
-                  <div>
-                    <p className="font-medium text-blue-900">Total Books</p>
-                    <p className="text-sm text-blue-600">Books in your inventory</p>
+              <div className="flex items-center justify-between p-3 sm:p-4 bg-blue-50 rounded-lg">
+                <div className="flex items-center min-w-0 flex-1">
+                  <span className="text-xl sm:text-2xl mr-3 flex-shrink-0">📚</span>
+                  <div className="min-w-0 flex-1">
+                    <p className="font-medium text-blue-900 text-sm sm:text-base">Total Books</p>
+                    <p className="text-xs sm:text-sm text-blue-600">Books in your inventory</p>
                   </div>
                 </div>
-                <span className="text-2xl font-bold text-blue-600">{profile.bookCount}</span>
+                <span className="text-xl sm:text-2xl font-bold text-blue-600 flex-shrink-0 ml-2">{profile.bookCount}</span>
               </div>
 
-              <div className="flex items-center justify-between p-4 bg-green-50 rounded-lg">
-                <div className="flex items-center">
-                  <span className="text-2xl mr-3">💰</span>
-                  <div>
-                    <p className="font-medium text-green-900">Total Revenue</p>
-                    <p className="text-sm text-green-600">All-time sales revenue</p>
+              <div className="flex items-center justify-between p-3 sm:p-4 bg-green-50 rounded-lg">
+                <div className="flex items-center min-w-0 flex-1">
+                  <span className="text-xl sm:text-2xl mr-3 flex-shrink-0">💰</span>
+                  <div className="min-w-0 flex-1">
+                    <p className="font-medium text-green-900 text-sm sm:text-base">Total Revenue</p>
+                    <p className="text-xs sm:text-sm text-green-600">All-time sales revenue</p>
                   </div>
                 </div>
-                <span className="text-2xl font-bold text-green-600">
+                <span className="text-lg sm:text-2xl font-bold text-green-600 flex-shrink-0 ml-2">
                   ₹{profile.totalRevenue.toFixed(2)}
                 </span>
               </div>
 
-              <div className="flex items-center justify-between p-4 bg-purple-50 rounded-lg">
-                <div className="flex items-center">
-                  <span className="text-2xl mr-3">📊</span>
-                  <div>
-                    <p className="font-medium text-purple-900">Total Sales</p>
-                    <p className="text-sm text-purple-600">Number of sales made</p>
+              <div className="flex items-center justify-between p-3 sm:p-4 bg-purple-50 rounded-lg">
+                <div className="flex items-center min-w-0 flex-1">
+                  <span className="text-xl sm:text-2xl mr-3 flex-shrink-0">📊</span>
+                  <div className="min-w-0 flex-1">
+                    <p className="font-medium text-purple-900 text-sm sm:text-base">Total Sales</p>
+                    <p className="text-xs sm:text-sm text-purple-600">Number of sales made</p>
                   </div>
                 </div>
-                <span className="text-2xl font-bold text-purple-600">{profile.saleCount}</span>
+                <span className="text-xl sm:text-2xl font-bold text-purple-600 flex-shrink-0 ml-2">{profile.saleCount}</span>
               </div>
             </div>
           </div>
@@ -285,7 +285,7 @@ export default function ProfilePage() {
         {/* Account Actions */}
         <div className="card">
           <h2 className="text-xl font-semibold text-gray-900 mb-6">Account Actions</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="p-4 border border-gray-200 rounded-lg">
               <h3 className="font-medium text-gray-900 mb-2">Change Password</h3>
               <p className="text-sm text-gray-600 mb-4">
@@ -310,10 +310,10 @@ export default function ProfilePage() {
 
         {/* Success Tips */}
         <div className="card bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-200">
-          <h2 className="text-xl font-semibold text-blue-900 mb-4">💡 Tips for Success</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+          <h2 className="text-base sm:text-xl font-semibold text-blue-900 mb-4">💡 Tips for Success</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 text-xs sm:text-sm">
             <div>
-              <h3 className="font-medium text-blue-800 mb-2">Grow Your Inventory</h3>
+              <h3 className="font-medium text-blue-800 mb-2 text-sm sm:text-base">Grow Your Inventory</h3>
               <ul className="space-y-1 text-blue-700">
                 <li>• Add more books to increase sales opportunities</li>
                 <li>• Use high-quality images for better visibility</li>
@@ -321,7 +321,7 @@ export default function ProfilePage() {
               </ul>
             </div>
             <div>
-              <h3 className="font-medium text-blue-800 mb-2">Optimize Performance</h3>
+              <h3 className="font-medium text-blue-800 mb-2 text-sm sm:text-base">Optimize Performance</h3>
               <ul className="space-y-1 text-blue-700">
                 <li>• Monitor your sales analytics regularly</li>
                 <li>• Update stock levels to avoid overselling</li>

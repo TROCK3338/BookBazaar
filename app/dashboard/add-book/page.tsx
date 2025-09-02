@@ -82,10 +82,10 @@ export default function AddBookPage() {
 
   return (
     <DashboardLayout currentPage="add-book">
-      <div className="max-w-2xl mx-auto space-y-6">
+      <div className="max-w-2xl mx-auto space-y-4 sm:space-y-6">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Add New Book</h1>
-          <p className="text-gray-600 mt-2">Fill in the details to add a book to your inventory</p>
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Add New Book</h1>
+          <p className="text-sm sm:text-base text-gray-600 mt-2">Fill in the details to add a book to your inventory</p>
         </div>
 
         <div className="card">
@@ -118,7 +118,7 @@ export default function AddBookPage() {
               />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               <div>
                 <label htmlFor="price" className="block text-sm font-medium text-gray-700 mb-2">
                   Price (₹) *
@@ -194,20 +194,20 @@ export default function AddBookPage() {
               </div>
             )}
 
-            <div className="flex gap-4 pt-6">
-              <button
-                type="button"
-                onClick={() => router.push('/dashboard/books')}
-                className="flex-1 btn-secondary"
-              >
-                Cancel
-              </button>
+            <div className="flex flex-col xs:flex-row gap-3 sm:gap-4 pt-6">
               <button
                 type="submit"
                 disabled={loading}
                 className="flex-1 btn-primary disabled:opacity-50"
               >
                 {loading ? 'Adding Book...' : 'Add Book'}
+              </button>
+              <button
+                type="button"
+                onClick={() => router.push('/dashboard/books')}
+                className="flex-1 btn-secondary"
+              >
+                Cancel
               </button>
             </div>
           </form>

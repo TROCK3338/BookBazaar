@@ -10,23 +10,49 @@
   body {
     @apply bg-gray-50 text-gray-900;
   }
+  
+  /* Ensure proper scaling on mobile devices */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg font-medium transition-colors;
+    @apply bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 hover:shadow-md active:scale-95 touch-target;
   }
   
   .btn-secondary {
-    @apply bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded-lg font-medium transition-colors;
+    @apply bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded-lg font-medium transition-all duration-200 hover:shadow-md active:scale-95 touch-target;
   }
   
   .card {
-    @apply bg-white rounded-lg shadow-sm border border-gray-200 p-6;
+    @apply bg-white rounded-lg shadow-sm border border-gray-200 p-4 sm:p-6 transition-shadow duration-300;
   }
   
   .input-field {
-    @apply w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors;
+    @apply w-full px-3 py-2.5 text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors touch-target;
+  }
+  
+  .input-field:focus {
+    @apply shadow-sm;
+  }
+  
+  /* Mobile-first responsive utilities */
+  .mobile-menu-button {
+    @apply p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500 touch-target;
+  }
+  
+  .mobile-grid {
+    @apply grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4;
+  }
+  
+  .mobile-overlay {
+    @apply fixed inset-0 bg-gray-600 bg-opacity-75 z-40;
+  }
+  
+  .mobile-sidebar {
+    @apply fixed inset-y-0 left-0 flex flex-col w-64 bg-white shadow-xl z-50 transform transition-transform duration-300 ease-in-out;
   }
 }
 
@@ -50,5 +76,103 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
+  }
+  
+  /* Touch-friendly sizing */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px];
+  }
+  
+  /* Mobile form improvements */
+  .mobile-form-spacing {
+    @apply space-y-4 sm:space-y-6;
+  }
+  
+  .mobile-button-group {
+    @apply flex flex-col xs:flex-row gap-3 sm:gap-4;
+  }
+  
+  /* Better mobile modal handling */
+  .mobile-modal {
+    @apply max-h-[85vh] overflow-hidden flex flex-col;
+  }
+  
+  .mobile-modal-content {
+    @apply flex-1 overflow-y-auto;
+  }
+  
+  /* Safe area handling for mobile devices */
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  /* Responsive text sizes */
+  .text-responsive-xs {
+    @apply text-xs sm:text-sm;
+  }
+  
+  .text-responsive-sm {
+    @apply text-sm sm:text-base;
+  }
+  
+  .text-responsive-base {
+    @apply text-base sm:text-lg;
+  }
+  
+  .text-responsive-lg {
+    @apply text-lg sm:text-xl;
+  }
+  
+  .text-responsive-xl {
+    @apply text-xl sm:text-2xl;
+  }
+  
+  /* Mobile optimization utilities */
+  .mobile-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+  
+  .mobile-text {
+    @apply text-sm sm:text-base;
+  }
+  
+  .mobile-heading {
+    @apply text-lg sm:text-xl lg:text-2xl;
+  }
+  
+  .mobile-card-grid {
+    @apply grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6;
+  }
+  
+  /* Scrollbar styling for webkit browsers */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-gray-100 rounded-full;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 rounded-full hover:bg-gray-400;
+  }
+  
+  /* Better touch interactions for mobile */
+  @media (hover: none) and (pointer: coarse) {
+    .hover\:shadow-lg {
+      @apply shadow-lg;
+    }
+    
+    .hover\:bg-gray-100 {
+      @apply bg-gray-100;
+    }
+    
+    .hover\:bg-primary-100 {
+      @apply bg-primary-100;
+    }
   }
 }

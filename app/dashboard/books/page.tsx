@@ -143,17 +143,17 @@ export default function BooksPage() {
   return (
     <DashboardLayout currentPage="books">
       <div className="space-y-6">
-        <div className="flex justify-between items-center">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">My Books</h1>
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">My Books</h1>
             <p className="text-gray-600 mt-2">Manage your book inventory</p>
           </div>
           <Link
             href="/dashboard/add-book"
-            className="btn-primary flex items-center"
+            className="btn-primary flex items-center justify-center w-full sm:w-auto"
           >
             <span className="mr-2">➕</span>
-            Add New Book
+            <span className="text-sm sm:text-base">Add New Book</span>
           </Link>
         </div>
 
@@ -164,16 +164,16 @@ export default function BooksPage() {
         )}
 
         {books.length === 0 ? (
-          <div className="text-center py-12">
-            <div className="text-6xl mb-4">📚</div>
-            <h3 className="text-lg font-medium text-gray-900 mb-2">No books yet</h3>
-            <p className="text-gray-600 mb-6">Start building your inventory by adding your first book.</p>
-            <Link href="/dashboard/add-book" className="btn-primary">
+          <div className="text-center py-8 sm:py-12">
+            <div className="text-4xl sm:text-6xl mb-4">📚</div>
+            <h3 className="text-base sm:text-lg font-medium text-gray-900 mb-2">No books yet</h3>
+            <p className="text-sm sm:text-base text-gray-600 mb-6 px-4">Start building your inventory by adding your first book.</p>
+            <Link href="/dashboard/add-book" className="btn-primary text-sm sm:text-base">
               Add Your First Book
             </Link>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
             {books.map((book) => (
               <div key={book.id} className="card hover:shadow-md transition-shadow">
                 <div className="flex flex-col h-full">
@@ -181,31 +181,31 @@ export default function BooksPage() {
                     <img
                       src={book.image_url}
                       alt={book.title}
-                      className="w-full h-48 object-cover rounded-lg mb-4"
+                      className="w-full h-40 sm:h-48 object-cover rounded-lg mb-3 sm:mb-4"
                       onError={(e) => {
                         (e.target as HTMLImageElement).style.display = 'none';
                       }}
                     />
                   ) : (
-                    <div className="w-full h-48 bg-gray-100 rounded-lg mb-4 flex items-center justify-center">
-                      <span className="text-4xl">📖</span>
+                    <div className="w-full h-40 sm:h-48 bg-gray-100 rounded-lg mb-3 sm:mb-4 flex items-center justify-center">
+                      <span className="text-3xl sm:text-4xl">📖</span>
                     </div>
                   )}
                   
                   <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2 line-clamp-2">
+                    <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 sm:mb-3 line-clamp-2">
                       {book.title}
                     </h3>
                     
-                    <div className="space-y-2 mb-4">
+                    <div className="space-y-2 mb-3 sm:mb-4">
                       <div className="flex justify-between items-center">
-                        <span className="text-sm text-gray-600">Price:</span>
-                        <span className="font-semibold text-green-600">₹{book.price}</span>
+                        <span className="text-xs sm:text-sm text-gray-600">Price:</span>
+                        <span className="font-semibold text-green-600 text-sm sm:text-base">₹{book.price}</span>
                       </div>
                       
                       <div className="flex justify-between items-center">
-                        <span className="text-sm text-gray-600">Stock:</span>
-                        <span className={`font-semibold ${
+                        <span className="text-xs sm:text-sm text-gray-600">Stock:</span>
+                        <span className={`font-semibold text-sm sm:text-base ${
                           book.stock > 10 ? 'text-green-600' : 
                           book.stock > 0 ? 'text-yellow-600' : 'text-red-600'
                         }`}>
@@ -214,24 +214,24 @@ export default function BooksPage() {
                       </div>
                       
                       <div className="flex justify-between items-center">
-                        <span className="text-sm text-gray-600">Added:</span>
-                        <span className="text-sm text-gray-900">
+                        <span className="text-xs sm:text-sm text-gray-600">Added:</span>
+                        <span className="text-xs sm:text-sm text-gray-900">
                           {formatDate(book.created_at)}
                         </span>
                       </div>
                     </div>
                   </div>
                   
-                  <div className="flex gap-2 mt-4">
+                  <div className="flex gap-2 sm:gap-3 mt-3 sm:mt-4">
                     <button
                       onClick={() => handleEditBook(book)}
-                      className="flex-1 bg-blue-50 hover:bg-blue-100 text-blue-700 py-2 px-3 rounded-lg font-medium transition-colors text-sm"
+                      className="flex-1 bg-blue-50 hover:bg-blue-100 text-blue-700 py-2.5 px-3 rounded-lg font-medium transition-colors text-xs sm:text-sm touch-target"
                     >
                       Edit
                     </button>
                     <button
                       onClick={() => handleDeleteBook(book.id)}
-                      className="flex-1 bg-red-50 hover:bg-red-100 text-red-700 py-2 px-3 rounded-lg font-medium transition-colors text-sm"
+                      className="flex-1 bg-red-50 hover:bg-red-100 text-red-700 py-2 px-3 rounded-lg font-medium transition-colors text-xs sm:text-sm touch-target"
                     >
                       Delete
                     </button>
@@ -244,9 +244,9 @@ export default function BooksPage() {
 
         {/* Edit Book Modal */}
         {editingBook && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-            <div className="bg-white rounded-lg max-w-md w-full max-h-screen overflow-y-auto">
-              <div className="p-6">
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 safe-top safe-bottom">
+            <div className="bg-white rounded-lg max-w-md w-full max-h-[85vh] overflow-hidden flex flex-col">
+              <div className="p-4 sm:p-6 flex-1 overflow-y-auto">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">
                   Edit Book: {editingBook.title}
                 </h3>
@@ -257,7 +257,7 @@ export default function BooksPage() {
                   </div>
                 )}
                 
-                <form onSubmit={handleUpdateBook} className="space-y-4">
+                <form onSubmit={handleUpdateBook} className="space-y-4 sm:space-y-6">
                   <div>
                     <label htmlFor="edit-title" className="block text-sm font-medium text-gray-700 mb-1">
                       Title
@@ -272,7 +272,7 @@ export default function BooksPage() {
                     />
                   </div>
                   
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 xs:grid-cols-2 gap-3 sm:gap-4">
                     <div>
                       <label htmlFor="edit-price" className="block text-sm font-medium text-gray-700 mb-1">
                         Price (₹)
@@ -318,20 +318,20 @@ export default function BooksPage() {
                     />
                   </div>
                   
-                  <div className="flex gap-3 pt-4">
-                    <button
-                      type="button"
-                      onClick={handleCancelEdit}
-                      className="flex-1 btn-secondary"
-                    >
-                      Cancel
-                    </button>
+                  <div className="flex flex-col xs:flex-row gap-3 pt-4 sm:pt-6">
                     <button
                       type="submit"
                       disabled={updating}
                       className="flex-1 btn-primary disabled:opacity-50"
                     >
                       {updating ? 'Updating...' : 'Update Book'}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleCancelEdit}
+                      className="flex-1 btn-secondary"
+                    >
+                      Cancel
                     </button>
                   </div>
                 </form>

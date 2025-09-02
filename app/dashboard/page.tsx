@@ -64,7 +64,7 @@ export default function DashboardPage() {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           <div className="card">
             <div className="flex items-center">
               <div className="p-2 bg-blue-100 rounded-lg">
@@ -81,12 +81,12 @@ export default function DashboardPage() {
 
           <div className="card">
             <div className="flex items-center">
-              <div className="p-2 bg-green-100 rounded-lg">
-                <span className="text-2xl">💰</span>
+              <div className="p-2 bg-green-100 rounded-lg flex-shrink-0">
+                <span className="text-xl sm:text-2xl">💰</span>
               </div>
-              <div className="ml-4">
-                <p className="text-sm font-medium text-gray-600">Total Revenue</p>
-                <p className="text-2xl font-bold text-gray-900">
+              <div className="ml-3 sm:ml-4 min-w-0 flex-1">
+                <p className="text-xs sm:text-sm font-medium text-gray-600">Total Revenue</p>
+                <p className="text-lg sm:text-2xl font-bold text-green-600 truncate">
                   {loading ? '...' : `₹${stats.totalRevenue.toFixed(2)}`}
                 </p>
               </div>
@@ -95,12 +95,12 @@ export default function DashboardPage() {
 
           <div className="card">
             <div className="flex items-center">
-              <div className="p-2 bg-purple-100 rounded-lg">
-                <span className="text-2xl">📊</span>
+              <div className="p-2 bg-purple-100 rounded-lg flex-shrink-0">
+                <span className="text-xl sm:text-2xl">📊</span>
               </div>
-              <div className="ml-4">
-                <p className="text-sm font-medium text-gray-600">Total Sales</p>
-                <p className="text-2xl font-bold text-gray-900">
+              <div className="ml-3 sm:ml-4 min-w-0 flex-1">
+                <p className="text-xs sm:text-sm font-medium text-gray-600">Total Sales</p>
+                <p className="text-lg sm:text-2xl font-bold text-gray-900 truncate">
                   {loading ? '...' : stats.totalSales}
                 </p>
               </div>
@@ -109,12 +109,12 @@ export default function DashboardPage() {
 
           <div className="card">
             <div className="flex items-center">
-              <div className="p-2 bg-orange-100 rounded-lg">
-                <span className="text-2xl">💵</span>
+              <div className="p-2 bg-orange-100 rounded-lg flex-shrink-0">
+                <span className="text-xl sm:text-2xl">💵</span>
               </div>
-              <div className="ml-4">
-                <p className="text-sm font-medium text-gray-600">Avg. Book Price</p>
-                <p className="text-2xl font-bold text-gray-900">
+              <div className="ml-3 sm:ml-4 min-w-0 flex-1">
+                <p className="text-xs sm:text-sm font-medium text-gray-600">Avg. Book Price</p>
+                <p className="text-lg sm:text-2xl font-bold text-gray-900 truncate">
                   {loading ? '...' : `₹${stats.averagePrice.toFixed(2)}`}
                 </p>
               </div>
@@ -124,49 +124,49 @@ export default function DashboardPage() {
 
         {/* Quick Actions */}
         <div className="card">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">Quick Actions</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-4">Quick Actions</h2>
+          <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
             <Link
               href="/dashboard/add-book"
-              className="flex items-center p-4 bg-primary-50 rounded-lg hover:bg-primary-100 transition-colors"
+              className="flex items-center p-3 sm:p-4 bg-primary-50 rounded-lg hover:bg-primary-100 transition-colors touch-target"
             >
-              <span className="text-2xl mr-3">➕</span>
-              <div>
-                <p className="font-medium text-primary-700">Add New Book</p>
-                <p className="text-sm text-primary-600">Expand your inventory</p>
+              <span className="text-xl sm:text-2xl mr-3 flex-shrink-0">➕</span>
+              <div className="min-w-0 flex-1">
+                <p className="font-medium text-primary-700 text-sm sm:text-base">Add New Book</p>
+                <p className="text-xs sm:text-sm text-primary-600">Expand your inventory</p>
               </div>
             </Link>
 
             <Link
               href="/dashboard/books"
-              className="flex items-center p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors"
+              className="flex items-center p-3 sm:p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors touch-target"
             >
-              <span className="text-2xl mr-3">📚</span>
-              <div>
-                <p className="font-medium text-blue-700">Manage Books</p>
-                <p className="text-sm text-blue-600">Edit your listings</p>
+              <span className="text-xl sm:text-2xl mr-3 flex-shrink-0">📚</span>
+              <div className="min-w-0 flex-1">
+                <p className="font-medium text-blue-700 text-sm sm:text-base">Manage Books</p>
+                <p className="text-xs sm:text-sm text-blue-600">Edit your listings</p>
               </div>
             </Link>
 
             <Link
               href="/dashboard/sales"
-              className="flex items-center p-4 bg-green-50 rounded-lg hover:bg-green-100 transition-colors"
+              className="flex items-center p-3 sm:p-4 bg-green-50 rounded-lg hover:bg-green-100 transition-colors touch-target"
             >
-              <span className="text-2xl mr-3">📊</span>
-              <div>
-                <p className="font-medium text-green-700">View Sales</p>
-                <p className="text-sm text-green-600">Track performance</p>
+              <span className="text-xl sm:text-2xl mr-3 flex-shrink-0">📊</span>
+              <div className="min-w-0 flex-1">
+                <p className="font-medium text-green-700 text-sm sm:text-base">View Sales</p>
+                <p className="text-xs sm:text-sm text-green-600">Track performance</p>
               </div>
             </Link>
 
             <Link
               href="/dashboard/profile"
-              className="flex items-center p-4 bg-purple-50 rounded-lg hover:bg-purple-100 transition-colors"
+              className="flex items-center p-3 sm:p-4 bg-purple-50 rounded-lg hover:bg-purple-100 transition-colors touch-target"
             >
-              <span className="text-2xl mr-3">👤</span>
-              <div>
-                <p className="font-medium text-purple-700">Profile</p>
-                <p className="text-sm text-purple-600">Account settings</p>
+              <span className="text-xl sm:text-2xl mr-3 flex-shrink-0">👤</span>
+              <div className="min-w-0 flex-1">
+                <p className="font-medium text-purple-700 text-sm sm:text-base">Profile</p>
+                <p className="text-xs sm:text-sm text-purple-600">Account settings</p>
               </div>
             </Link>
           </div>
