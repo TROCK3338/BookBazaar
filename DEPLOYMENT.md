@@ -35,24 +35,6 @@ Complete guide for deploying BookBazaar to production on Vercel + Render.
    # Use External URL for Vercel deployment
    ```
 
-### Option 2: Supabase (Alternative)
-
-```bash
-# 1. Go to https://supabase.com
-# 2. Create new project
-# 3. Get connection string from Settings → Database
-# 4. Use in format: postgresql://[ref]:[password]@db.[ref].supabase.co:5432/postgres?sslmode=require
-```
-
-### Option 3: Neon (Alternative)
-
-```bash
-# 1. Go to https://neon.tech
-# 2. Create new project
-# 3. Get connection string from dashboard
-# 4. Use provided connection string
-```
-
 ## 🌐 Frontend Deployment (Vercel)
 
 ### Step 1: Prepare Repository

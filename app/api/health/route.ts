@@ -55,7 +55,7 @@ export async function GET() {
           database: { status: 'unknown', error: 'Health check failed' },
           api: { status: 'unhealthy' },
         },
-        details: process.env.NODE_ENV === 'development' ? error.message : 'Service temporarily unavailable'
+        details: process.env.NODE_ENV === 'development' ? (error instanceof Error ? error.message : String(error)) : 'Service temporarily unavailable'
       },
       { 
         status: 503,
